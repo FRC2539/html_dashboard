@@ -1,0 +1,40 @@
+.ui-page-theme-a .ui-header .ui-btn
+{
+    background-color: #f7931e;
+    color: #ffffff;
+    text-shadow: 0 1px 0 #444444;
+}
+
+.ui-page-theme-a .ui-header .ui-btn:hover
+{
+    background-color: #ffa32e;
+    color: #ffffff;
+    text-shadow: 0 1px 0 #444444;
+}
+
+#connection-indicator
+{
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    margin-top: 10px;
+    float: left;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    background-color: #555555;
+}
+
+#connection-indicator.disconnected
+{
+    background-color: #ff0000;
+}
+
+#connection-indicator.connected
+{
+    background-color: #ffffff;
+}
+
+#config .ui-bar h2
+{
+    margin-bottom: 1em;
+}

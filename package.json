@@ -1,0 +1,10 @@
+{
+  "name": "RobotDashboard",
+  "main": "node.html",
+  "window": {
+    "toolbar": false
+  },
+  "scripts": {
+    "start": "nw"
+  }
+}
