@@ -38,3 +38,8 @@
 {
     margin-bottom: 1em;
 }
+
+#camera1, #camera2
+{
+    padding: 0.5em;
+}
