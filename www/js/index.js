@@ -23,26 +23,42 @@ $(document).ready(function() {
         port: 8080,
         image_url: '/?action=stream',
         data_url: '/program.json',
-        wait_img: null,
+        wait_img: '/img/waiting.gif',
         error_img: null,
         attrs: {
             width: "100%",
         }
-        
+
     });
-	loadCameraOnConnect({
+    loadCameraOnConnect({
         container: '#camera2',
         proto: null,
         host: 'axis-camera.local',
         port: 80,
         image_url: '/mjpg/video.mjpg',
         data_url: '/view/index.shtml',
-        wait_img: null,
+        wait_img: '/img/waiting.gif',
         error_img: null,
         attrs: {
             width: "100%",
         }
-        
+
     });
 
+    NetworkTables.addKeyListener(
+        '/SmartDashboard/Alerts',
+        function(key, val, isNew) {
+            val = $.trim(val);
+            if (val == '')
+            {
+                return;
+            }
+            ohSnap(val, {
+                color: 'orange',
+                icon: 'ui-btn-icon-left ui-icon-alert',
+                duration: 8000
+            });
+        },
+        true
+    );
 });

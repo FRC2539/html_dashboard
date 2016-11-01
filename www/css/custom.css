@@ -41,5 +41,14 @@
 
 #camera1, #camera2
 {
-    padding: 0.5em;
+    margin: 0.5em;
+    background-color: #000;
+    text-align: center;
+}
+
+#camera1 > img[src="/img/waiting.gif"],
+#camera2 > img[src="/img/waiting.gif"]
+{
+    margin: 3em auto;
+    width: 40% !important;
 }
