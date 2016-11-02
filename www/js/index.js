@@ -61,4 +61,39 @@ $(document).ready(function() {
         },
         true
     );
+
+    var chooser = '/SmartDashboard/Autonomous Program/';
+    var $chooserGroup = $('#automode');
+
+    $chooserGroup.on('click', 'input', function(e) {
+        NetworkTables.putValue(chooser + "selected", $(this).val());
+    });
+
+    var  updateChooser = function(key, val, isNew) {
+        var options = NetworkTables.getValue(chooser + 'options');
+        if (options === undefined)
+        {
+            return;
+        }
+
+        var selected = NetworkTables.getValue(chooser + 'selected');
+        if (selected === undefined)
+        {
+                selected = NetworkTables.getValue(chooser + 'default');
+        }
+
+        $chooserGroup.find('.ui-radio, .ui-controlgroup-controls').remove();
+        for (var i in options)
+        {
+            $chooserGroup.append(
+                '<input type="radio" name="automode" id="automode-' + i
+                + '" value="' + options[i] + '" checked="checked">'
+                + '<label for="automode-'+ i + '">' + options[i] + '</label>'
+            );
+        }
+        $chooserGroup.trigger('create');
+    };
+    NetworkTables.addKeyListener(chooser + 'options', updateChooser, true);
+    NetworkTables.addKeyListener(chooser + 'default', updateChooser, true);
+    NetworkTables.addKeyListener(chooser + 'selected', updateChooser, true);
 });
