@@ -65,8 +65,14 @@ $(document).ready(function() {
     var chooser = '/SmartDashboard/Autonomous Program/';
     var $chooserGroup = $('#automode');
 
-    $chooserGroup.on('click', 'input', function(e) {
-        NetworkTables.putValue(chooser + "selected", $(this).val());
+    $chooserGroup.on('click', 'input,label', function(e) {
+        var $this = $(this);
+        if ($this.is('label'))
+        {
+            $this = $('#' + $this.prop('for'));
+        }
+
+        NetworkTables.putValue(chooser + "selected", $this.val());
     });
 
     var  updateChooser = function(key, val, isNew) {
@@ -82,16 +88,21 @@ $(document).ready(function() {
                 selected = NetworkTables.getValue(chooser + 'default');
         }
 
-        $chooserGroup.find('.ui-radio, .ui-controlgroup-controls').remove();
+        var $controlGroup = $chooserGroup.find('.ui-controlgroup-controls');
+        $controlGroup.find('.ui-radio').remove();
         for (var i in options)
         {
-            $chooserGroup.append(
+            $controlGroup.append(
                 '<input type="radio" name="automode" id="automode-' + i
-                + '" value="' + options[i] + '" checked="checked">'
+                + '" value="' + options[i] + '">'
                 + '<label for="automode-'+ i + '">' + options[i] + '</label>'
             );
         }
-        $chooserGroup.trigger('create');
+        $controlGroup.trigger('create');
+
+        var $labels = $controlGroup.find('label');
+        $labels.first().addClass('ui-first-child');
+        $labels.last().addClass('ui-last-child');
     };
     NetworkTables.addKeyListener(chooser + 'options', updateChooser, true);
     NetworkTables.addKeyListener(chooser + 'default', updateChooser, true);
