@@ -75,7 +75,7 @@ $(document).ready(function() {
         NetworkTables.putValue(chooser + "selected", $this.val());
     });
 
-    var  updateChooser = function(key, val, isNew) {
+    var updateChooser = function(key, val, isNew) {
         var options = NetworkTables.getValue(chooser + 'options');
         if (options === undefined)
         {
@@ -89,13 +89,21 @@ $(document).ready(function() {
         }
 
         var $controlGroup = $chooserGroup.find('.ui-controlgroup-controls');
-        $controlGroup.find('.ui-radio').remove();
+        $controlGroup.empty();
         for (var i in options)
         {
             $controlGroup.append(
-                '<input type="radio" name="automode" id="automode-' + i
-                + '" value="' + options[i] + '">'
-                + '<label for="automode-'+ i + '">' + options[i] + '</label>'
+                $('<input>').attr({
+                    type: 'radio',
+                    name: 'automode',
+                    id: 'automode-' + i,
+                    value: options[i],
+                    checked: false
+                })
+            ).append(
+                $('<label>')
+                    .attr('for', 'automode-' + i)
+                    .text(options[i])
             );
         }
         $controlGroup.trigger('create');
@@ -104,6 +112,7 @@ $(document).ready(function() {
         $labels.first().addClass('ui-first-child');
         $labels.last().addClass('ui-last-child');
     };
+
     NetworkTables.addKeyListener(chooser + 'options', updateChooser, true);
     NetworkTables.addKeyListener(chooser + 'default', updateChooser, true);
     NetworkTables.addKeyListener(chooser + 'selected', updateChooser, true);
