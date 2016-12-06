@@ -92,13 +92,20 @@ $(document).ready(function() {
         $controlGroup.empty();
         for (var i in options)
         {
+			var checker = false;
+			
+			if (selected == options[i])
+			{
+				checker = true;
+			}
+			
             $controlGroup.append(
                 $('<input>').attr({
                     type: 'radio',
                     name: 'automode',
                     id: 'automode-' + i,
                     value: options[i],
-                    checked: false
+                    checked: checker
                 })
             ).append(
                 $('<label>')
