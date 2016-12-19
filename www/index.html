@@ -72,6 +72,40 @@
                             <input type="number" id="drivetrain-ticksperinch" step=".01" min="0" data-key="/DriveTrain/ticksPerInch" required>
                             <label for="drivetrain-width" title="Distance between wheels (inches)">Drive Base Width</label>
                             <input type="number" id="drivetrain-width" step=".1" min="0" data-key="/DriveTrain/width" required>
+                            <div class="ui-grid-b">
+                                <div class="ui-block-a">
+                                    <label for="drivetrain-position-p">Speed P</label>
+                                    <input type="number" id="drivetrain-position-p" step="0.0001" min="0" data-key="/DriveTrain/Speed/P" required>
+                                </div>
+                                <div class="ui-block-b">
+                                    <label for="drivetrain-position-i">I</label>
+                                    <input type="number" id="drivetrain-position-i" step="0.0001" min="0" data-key="/DriveTrain/Speed/I" required>
+                                </div>
+                                <div class="ui-block-c">
+                                    <label for="drivetrain-position-d">D</label>
+                                    <input type="number" id="drivetrain-position-d" step="0.0001" min="0" data-key="/DriveTrain/Speed/D" required>
+                                </div>
+                                <input type="hidden" value="" data-key="/DriveTrain/Speed/F">
+                                <input type="hidden" value="" data-key="/DriveTrain/Speed/IZone">
+                                <input type="hidden" value="" data-key="/DriveTrain/Speed/RampRate">
+                            </div>
+                            <div class="ui-grid-b">
+                                <div class="ui-block-a">
+                                    <label for="drivetrain-position-p">Position P</label>
+                                    <input type="number" id="drivetrain-position-p" step="0.0001" min="0" data-key="/DriveTrain/Position/P" required>
+                                </div>
+                                <div class="ui-block-b">
+                                    <label for="drivetrain-position-i">I</label>
+                                    <input type="number" id="drivetrain-position-i" step="0.0001" min="0" data-key="/DriveTrain/Position/I" required>
+                                </div>
+                                <div class="ui-block-c">
+                                    <label for="drivetrain-position-d">D</label>
+                                    <input type="number" id="drivetrain-position-d" step="0.0001" min="0" data-key="/DriveTrain/Position/D" required>
+                                </div>
+                                <input type="hidden" value="" data-key="/DriveTrain/Position/F">
+                                <input type="hidden" value="" data-key="/DriveTrain/Position/IZone">
+                                <input type="hidden" value="" data-key="/DriveTrain/Position/RampRate">
+                            </div>
                         </div></div>
                         <div class="ui-block-b"><div class="ui-bar">
                         </div></div>

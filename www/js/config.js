@@ -1,5 +1,13 @@
 $(document).ready(function() {
-    const simpleInputs = ['text', 'number', 'date', 'time', 'url', 'password'];
+    const simpleInputs = [
+        'text',
+        'number',
+        'date',
+        'time',
+        'url',
+        'password',
+        'hidden'
+    ];
 
     const $config = $('#save-config');
     const $inputs = $config.find('input,select').filter(function() {
@@ -16,6 +24,11 @@ $(document).ready(function() {
         $inputs.each(function() {
             var $this = $(this);
             var key = $this.data('key');
+
+            if ( ! key)
+            {
+                return;
+            }
 
             if (isSimple($this))
             {
