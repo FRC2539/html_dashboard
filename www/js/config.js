@@ -61,14 +61,10 @@ $(document).ready(function() {
                 {
                     if ($this.prop('type') == 'number' && $this.prop('step') != 'any')
                     {
-                        if (val % $this.prop('step') < $this.prop('step') / 2)
-                        {
-                            val -= val % $this.prop('step')
-                        }
-                        else
-                        {
-                            val += $this.prop('step') - val % $this.prop('step')
-                        }
+                        console.log(Math.round(val / $this.prop('step')) * $this.prop('step'))
+                        val /= $this.prop('step')
+                        val = Math.round(val)
+                        val *= $this.prop('step')
                     }
                     $this.val(val);
                 }
