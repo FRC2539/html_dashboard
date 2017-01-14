@@ -59,12 +59,14 @@ $(document).ready(function() {
             function(key, val, isNew) {
                 if (isSimple($this))
                 {
-                    if ($this.prop('type') == 'number' && $this.prop('step') != 'any')
+                    // Round number inputs to their step, if applicable.
+                    if ($this.prop('type') == 'number')
                     {
-                        console.log(Math.round(val / $this.prop('step')) * $this.prop('step'))
-                        val /= $this.prop('step')
-                        val = Math.round(val)
-                        val *= $this.prop('step')
+                        var step = $this.prop('step');
+                        if (isFinite(step))
+                        {
+                            val = Math.round(val / step) * step;
+                        }
                     }
                     $this.val(val);
                 }
