@@ -59,6 +59,17 @@ $(document).ready(function() {
             function(key, val, isNew) {
                 if (isSimple($this))
                 {
+                    if ($this.prop('type') == 'number' && $this.prop('step') != 'any')
+                    {
+                        if (val % $this.prop('step') < $this.prop('step') / 2)
+                        {
+                            val -= val % $this.prop('step')
+                        }
+                        else
+                        {
+                            val += $this.prop('step') - val % $this.prop('step')
+                        }
+                    }
                     $this.val(val);
                 }
                 else if ($this.prop('type') == 'radio')
