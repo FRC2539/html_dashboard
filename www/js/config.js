@@ -18,6 +18,15 @@ $(document).ready(function() {
         return $el.is('select') || simpleInputs.indexOf($el.prop('type')) != -1;
     };
 
+    const coerceValue = function(val) {
+        if (val !== null && isFinite(val))
+        {
+            val = Number(val);
+        }
+
+        return val;
+    };
+
     $('#config').submit(function(e) {
         e.preventDefault();
 
@@ -32,22 +41,15 @@ $(document).ready(function() {
 
             if (isSimple($this))
             {
-                NetworkTables.putValue(key, $this.val());
+                NetworkTables.putValue(key, coerceValue($this.val()));
             }
             else if ($this.prop('type') == 'radio' && $this.is(':checked'))
             {
-                NetworkTables.putValue(key, $this.val());
+                NetworkTables.putValue(key, coerceValue($this.val()));
             }
             else if ($this.prop('type') == 'checkbox')
             {
-                if ($this.is(':checked'))
-                {
-                    NetworkTables.putValue(key, 'True');
-                }
-                else
-                {
-                    NetworkTables.putValue(key, 'False');
-                }
+                NetworkTables.putValue(key, $this.is(':checked'));
             }
         });
     });
@@ -63,7 +65,7 @@ $(document).ready(function() {
                     if ($this.prop('type') == 'number')
                     {
                         var step = $this.prop('step');
-                        if (isFinite(step))
+                        if (step && isFinite(step))
                         {
                             val = Math.round(val / step) * step;
                         }
@@ -79,11 +81,7 @@ $(document).ready(function() {
                 }
                 else if ($this.prop('type') == 'checkbox')
                 {
-                    if (val == 'True' && ! $this.is(':checked'))
-                    {
-                        $this.click();
-                    }
-                    else if (val == 'False' && $this.is(':checked'))
+                    if (val != $this.is(':checked'))
                     {
                         $this.click();
                     }
