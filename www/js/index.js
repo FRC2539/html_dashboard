@@ -16,7 +16,7 @@ $(document).ready(function() {
 
     NetworkTables.addRobotConnectionListener(connectionChange, true);
 
-    loadCameraOnConnect({
+    /*loadCameraOnConnect({
         container: '#camera1',
         proto: null,
         host: 'tegra-ubuntu',
@@ -29,7 +29,7 @@ $(document).ready(function() {
             width: "100%",
         }
 
-    });
+    });*/
     loadCameraOnConnect({
         container: '#camera2',
         proto: null,
