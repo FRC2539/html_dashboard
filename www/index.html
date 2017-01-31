@@ -66,16 +66,36 @@
                             <h2>Drive Train</h2>
                             <label for="drivetrain-manualMaxSpeed">Manual Max Speed</label>
                             <input type="number" id="drivetrain-manualMaxSpeed" step="1" min="0" max="200" data-key="/DriveTrain/manualMaxSpeed" required>
+
+                            <fieldset data-role="controlgroup" data-type="horizontal" id="autolocation">
+                                <legend>Robot Location</legend>
+                                <label for="autonomous-left">Left</label>
+                                <input type="radio" name="autolocation" id="autonomous-left" value="Left" data-key="/Autonomous/robotLocation">
+
+                                <label for="autonomous-middle">Middle</label>
+                                <input type="radio" name="autolocation" id="autonomous-middle" value="Middle" data-key="/Autonomous/robotLocation">
+
+                                <label for="autonomous-right">Right</label>
+                                <input type="radio" name="autolocation" id="autonomous-right" value="Right" data-key="/Autonomous/robotLocation">
+                            </fieldset>
+
+
+
                             <label for="drivetrain-maxspeed">Max Speed</label>
                             <input type="number" id="drivetrain-maxspeed" step="1" min="0" data-key="/DriveTrain/maxSpeed" required>
+
                             <label for="drivetrain-precisespeed">Precise Max Speed</label>
                             <input type="number" id="drivetrain-precisespeed" step="1" min="0" data-key="/DriveTrain/preciseSpeed" required>
+
                             <label for="shooter-shooterspeed">Shooter Speed</label>
                             <input type="number" id="shooter-shooterspeed" step="1" min="0" data-key="/Shooter/shooterSpeed" required>
+
                             <label for="drivetrain-ticksperinch">Encoder Ticks / Inch</label>
                             <input type="number" id="drivetrain-ticksperinch" step=".01" min="0" data-key="/DriveTrain/ticksPerInch" required>
+
                             <label for="drivetrain-width" title="Distance between wheels (inches)">Drive Base Width</label>
                             <input type="number" id="drivetrain-width" step=".1" min="0" data-key="/DriveTrain/width" required>
+
                             <div class="ui-grid-b">
                                 <div class="ui-block-a">
                                     <label for="drivetrain-position-p">Speed P</label>
