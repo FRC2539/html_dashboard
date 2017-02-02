@@ -44,6 +44,8 @@
     margin: 0.5em;
     background-color: #555;
     text-align: center;
+    height: 350px;
+    width: 500px;
 }
 
 #camera1 > img[src="/img/waiting.gif"],
@@ -51,6 +53,4 @@
 {
     margin: 3em auto;
     /*width: 40% !important;*/
-    height: 350px;
-    width: 500px;
 }
