@@ -42,7 +42,7 @@
 #camera1, #camera2
 {
     margin: 0.5em;
-    background-color: #000;
+    background-color: #555;
     text-align: center;
 }
 
@@ -50,5 +50,7 @@
 #camera2 > img[src="/img/waiting.gif"]
 {
     margin: 3em auto;
-    width: 40% !important;
+    /*width: 40% !important;*/
+    height: 350px;
+    width: 500px;
 }
