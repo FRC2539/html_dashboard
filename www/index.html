@@ -82,16 +82,16 @@
 
                             <div class="ui-grid-b">
                                 <div class="ui-block-a">
-                                    <label for="drivetrain-position-p">Speed P</label>
-                                    <input type="number" id="drivetrain-position-p" step="0.0001" min="0" data-key="/DriveTrain/Speed/P" required>
+                                    <label for="drivetrain-speed-p">Speed P</label>
+                                    <input type="number" id="drivetrain-speed-p" step="0.0001" min="0" data-key="/DriveTrain/Speed/P" required>
                                 </div>
                                 <div class="ui-block-b">
-                                    <label for="drivetrain-position-i">I</label>
-                                    <input type="number" id="drivetrain-position-i" step="0.0001" min="0" data-key="/DriveTrain/Speed/I" required>
+                                    <label for="drivetrain-speed-i">I</label>
+                                    <input type="number" id="drivetrain-speed-i" step="0.0001" min="0" data-key="/DriveTrain/Speed/I" required>
                                 </div>
                                 <div class="ui-block-c">
-                                    <label for="drivetrain-position-d">D</label>
-                                    <input type="number" id="drivetrain-position-d" step="0.0001" min="0" data-key="/DriveTrain/Speed/D" required>
+                                    <label for="drivetrain-speed-d">D</label>
+                                    <input type="number" id="drivetrain-speed-d" step="0.0001" min="0" data-key="/DriveTrain/Speed/D" required>
                                 </div>
                                 <input type="hidden" value="" data-key="/DriveTrain/Speed/F">
                                 <input type="hidden" value="" data-key="/DriveTrain/Speed/IZone">
@@ -120,6 +120,27 @@
 
                             <label for="shooter-speed">Shooting Speed</label>
                             <input type="number" id="shooter-speed" step="1" min="0" data-key="/Shooter/speed" required>
+
+                            <div class="ui-grid-b">
+                                <div class="ui-block-a">
+                                    <label for="shooter-speed-p">Speed P</label>
+                                    <input type="number" id="shooter-speed-p" step="0.0001" min="0" data-key="/Shooter/Speed/P" required>
+                                </div>
+                                <div class="ui-block-b">
+                                    <label for="shooter-speed-i">I</label>
+                                    <input type="number" id="shooter-speed-i" step="0.0001" min="0" data-key="/Shooter/Speed/I" required>
+                                </div>
+                                <div class="ui-block-c">
+                                    <label for="shooter-speed-d">D</label>
+                                    <input type="number" id="shooter-speed-d" step="0.0001" min="0" data-key="/Shooter/Speed/D" required>
+                                </div>
+                                <div class="ui-block-d">
+                                    <label for="shooter-speed-f">F</label>
+                                    <input type="number" id="shooter-speed-f" step="0.0001" min="0" data-key="/Shooter/Speed/F" required>
+                                </div>
+                                <input type="hidden" value="" data-key="/Shooter/Speed/IZone">
+                                <input type="hidden" value="" data-key="/Shooter/Speed/RampRate">
+                            </div>
                         </div></div>
                         <div class="ui-block-c"><div class="ui-bar">
                             <h2>Autonomous</h2>

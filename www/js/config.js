@@ -27,6 +27,7 @@ $(document).ready(function() {
         return val;
     };
 
+
     $('#config').submit(function(e) {
         e.preventDefault();
 
@@ -52,6 +53,17 @@ $(document).ready(function() {
                 NetworkTables.putValue(key, $this.is(':checked'));
             }
         });
+    });
+
+    $(window).keydown(function(event) {
+    console.log(event);
+    console.log(event.which)
+    if (!(event.which == 83 && event.ctrlKey) && !(event.which == 19)) return true;
+    alert("Ctrl-S pressed");
+    event.preventDefault();
+    $('#config').submit();
+
+    return false;
     });
 
     $inputs.each(function() {
