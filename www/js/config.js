@@ -55,15 +55,16 @@ $(document).ready(function() {
         });
     });
 
-    $(window).keydown(function(event) {
-    console.log(event);
-    console.log(event.which)
-    if (!(event.which == 83 && event.ctrlKey) && !(event.which == 19)) return true;
-    alert("Ctrl-S pressed");
-    event.preventDefault();
-    $('#config').submit();
+    $(window).keydown(function(e) {
+        if ( ! (e.which == 83 && e.ctrlKey))
+        {
+            return true;
+        }
 
-    return false;
+        e.preventDefault();
+        $('#config').submit();
+
+        return false;
     });
 
     $inputs.each(function() {
