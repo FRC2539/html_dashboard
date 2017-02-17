@@ -16,11 +16,11 @@ $(document).ready(function() {
 
     NetworkTables.addRobotConnectionListener(connectionChange, true);
 
-    /*loadCameraOnConnect({
+    loadCameraOnConnect({
         container: '#camera1',
         proto: null,
         host: 'tegra-ubuntu',
-        port: 8080,
+        port: 5801,
         image_url: '/?action=stream',
         data_url: '/program.json',
         wait_img: '/img/waiting.gif',
@@ -29,14 +29,14 @@ $(document).ready(function() {
             width: "100%",
         }
 
-    });*/
+    });
     loadCameraOnConnect({
         container: '#camera2',
         proto: null,
-        host: 'axis-camera.local',
-        port: 80,
-        image_url: '/mjpg/video.mjpg',
-        data_url: '/view/index.shtml',
+        host: 'tegra-ubuntu',
+        port: 5802,
+        image_url: '/?action=stream',
+        data_url: '/program.json',
         wait_img: '/img/waiting.gif',
         error_img: null,
         attrs: {
