@@ -19,7 +19,7 @@ $(document).ready(function() {
     loadCameraOnConnect({
         container: '#camera1',
         proto: null,
-        host: 'tegra-ubuntu',
+        host: 'tegra-ubuntu.local',
         port: 5801,
         image_url: '/?action=stream',
         data_url: '/program.json',
@@ -33,7 +33,7 @@ $(document).ready(function() {
     loadCameraOnConnect({
         container: '#camera2',
         proto: null,
-        host: 'tegra-ubuntu',
+        host: 'tegra-ubuntu.local',
         port: 5802,
         image_url: '/?action=stream',
         data_url: '/program.json',
