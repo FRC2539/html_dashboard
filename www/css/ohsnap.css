@@ -15,8 +15,15 @@ float: right;
 clear: right;
 position: relative;
 text-shadow: 0 1px 0 #444444;
+opacity: 0.8;
 }
 .alert-orange {
+color: white;
+background-color: #ff8300;
+font-weight: bold;
+border-color: #666666;
+}
+.alert-white {
 color: white;
 background-color: #ff8300;
 }

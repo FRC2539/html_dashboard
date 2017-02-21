@@ -48,16 +48,48 @@ $(document).ready(function() {
     NetworkTables.addKeyListener(
         '/SmartDashboard/Alerts',
         function(key, val, isNew) {
-            val = $.trim(val);
-            if (val == '')
+            if (val == [])
             {
                 return;
             }
-            ohSnap(val, {
-                color: 'orange',
-                icon: 'ui-btn-icon-left ui-icon-alert',
-                duration: 8000
-            });
+            NetworkTables.putValue('/SmartDashboard/Alerts', []);
+            for (var i in val)
+            {
+                msg = $.trim(val[i]);
+                if (msg == '')
+                {
+                    return;
+                }
+                ohSnap(msg, {
+                    color: 'orange',
+                    icon: 'ui-btn-icon-left ui-icon-alert',
+                    duration: 8000
+                });
+            }
+        },
+        true
+    );
+    NetworkTables.addKeyListener(
+        '/SmartDashboard/Info',
+        function(key, val, isNew) {
+            if (val == [])
+            {
+                return;
+            }
+            NetworkTables.putValue('/SmartDashboard/Info', []);
+            for (var i in val)
+            {
+                msg = $.trim(val[i]);
+                if (msg == '')
+                {
+                    return;
+                }
+                ohSnap(msg, {
+                    color: 'white',
+                    icon: 'ui-btn-icon-left ui-icon-info',
+                    duration: 4000
+                });
+            }
         },
         true
     );
