@@ -52,7 +52,7 @@ $(document).ready(function() {
             {
                 return;
             }
-            NetworkTables.putValue('/SmartDashboard/Alerts', []);
+            NetworkTables.putValue('/SmartDashboard/Alerts', ['']);
             for (var i in val)
             {
                 msg = $.trim(val[i]);
@@ -76,7 +76,7 @@ $(document).ready(function() {
             {
                 return;
             }
-            NetworkTables.putValue('/SmartDashboard/Info', []);
+            NetworkTables.putValue('/SmartDashboard/Info', ['']);
             for (var i in val)
             {
                 msg = $.trim(val[i]);
