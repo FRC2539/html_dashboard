@@ -48,7 +48,7 @@ $(document).ready(function() {
     NetworkTables.addKeyListener(
         '/SmartDashboard/Alerts',
         function(key, val, isNew) {
-            if (val == [])
+            if (val == [''])
             {
                 return;
             }
@@ -72,7 +72,7 @@ $(document).ready(function() {
     NetworkTables.addKeyListener(
         '/SmartDashboard/Info',
         function(key, val, isNew) {
-            if (val == [])
+            if (val == [''])
             {
                 return;
             }
