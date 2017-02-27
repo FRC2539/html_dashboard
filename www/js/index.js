@@ -45,54 +45,56 @@ $(document).ready(function() {
 
     });
 
-    NetworkTables.addKeyListener(
-        '/SmartDashboard/Alerts',
-        function(key, val, isNew) {
-            if (val == [''])
-            {
-                return;
-            }
-            NetworkTables.putValue('/SmartDashboard/Alerts', ['']);
-            for (var i in val)
-            {
-                msg = $.trim(val[i]);
-                if (msg == '')
+    var addAlertListener = function(color, alert) {
+        NetworkTables.addKeyListener(
+            '/SmartDashboard/' + alert.key,
+            function(key, val, isNew) {
+                var empty = true;
+                for (var j in val)
                 {
-                    return;
+                    var msg = $.trim(val[j]);
+                    if (msg == '')
+                    {
+                        continue;
+                    }
+
+                    empty = false;
+                    ohSnap(msg, {
+                        color: color,
+                        icon: 'ui-btn-icon-left ui-icon-' + alert.icon,
+                        duration: alert.duration * 1000
+                    });
                 }
-                ohSnap(msg, {
-                    color: 'orange',
-                    icon: 'ui-btn-icon-left ui-icon-alert',
-                    duration: 8000
-                });
-            }
-        },
-        true
-    );
-    NetworkTables.addKeyListener(
-        '/SmartDashboard/Info',
-        function(key, val, isNew) {
-            if (val == [''])
-            {
-                return;
-            }
-            NetworkTables.putValue('/SmartDashboard/Info', ['']);
-            for (var i in val)
-            {
-                msg = $.trim(val[i]);
-                if (msg == '')
+
+                if ( ! empty)
                 {
-                    return;
+                    NetworkTables.putValue(
+                        '/SmartDashboard/' + alert.key,
+                        ['']
+                    );
                 }
-                ohSnap(msg, {
-                    color: 'white',
-                    icon: 'ui-btn-icon-left ui-icon-info',
-                    duration: 4000
-                });
-            }
+            },
+            true
+        );
+    };
+
+    var alerts = {
+        orange: {
+            key: 'Alerts',
+            icon: 'alert',
+            duration: 8
         },
-        true
-    );
+        white: {
+            key: 'Info',
+            icon: 'info',
+            duration: 4
+        }
+    };
+
+    for (var i in alerts)
+    {
+        addAlertListener(i, alerts[i]);
+    }
 
     var chooser = '/SmartDashboard/Autonomous Program/';
     var $chooserGroup = $('#automode');
@@ -148,4 +150,19 @@ $(document).ready(function() {
     NetworkTables.addKeyListener(chooser + 'options', updateChooser, true);
     NetworkTables.addKeyListener(chooser + 'default', updateChooser, true);
     NetworkTables.addKeyListener(chooser + 'selected', updateChooser, true);
+
+    NetworkTables.addKeyListener(
+        '/cameraTarget/liftVisible',
+        function(key, val, isNew) {
+            $('#liftDistance').toggle(val);
+        },
+        true
+    );
+    NetworkTables.addKeyListener(
+        '/cameraTarget/liftDistance',
+        function(key, val, isNew) {
+            $('#liftDistance > span')[0].textContent = Math.round(val);
+        },
+        true
+    );
 });
