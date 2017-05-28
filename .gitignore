@@ -1,1 +1,11 @@
+# Node.js
 node_modules
+
+# Kdevelop
+*.kdev4
+
+# virtualenv
+.venv
+
+# PID store
+.pid
