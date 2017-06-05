@@ -1,4 +1,4 @@
-﻿cd c:\Users\Krypton\html_dashboard\www
+﻿cd $PSScriptRoot\www
 Start-Process py -ArgumentList "-m pynetworktables2js", "--port 2539", "--robot roborio-2539-frc.local" -NoNewWindow
 cd ..
 npm start
