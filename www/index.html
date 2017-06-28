@@ -22,14 +22,18 @@
         <script src="js/index.js"></script>
         <script src="js/config.js"></script>
     </head>
-    <body>
-        <div data-role="page" data-title="2539 Robot Dashboard" id="main">
-
-            <div data-role="header">
-                <div id="connection-indicator" class="disconnected"></div>
-                <h1>2539</h1>
-                <a href="#config" class="ui-btn ui-btn-right ui-btn-icon-left ui-icon-gear">Configuration</a>
+    <body class="ui-page-theme-a">
+        <div data-role="header">
+            <div id="connection-indicator" class="disconnected"></div>
+            <h1>2539</h1>
+            <div data-role="controlgroup" data-type="horizontal" class="ui-btn-right">
+                <a href="#main" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-video">Drive</a>
+                <a href="#config" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-navigation">Config</a>
+                <a href="#debug" class="ui-btn ui-corner-all ui-btn-icon-left ui ui-icon-alert">Debug</a>
             </div>
+        </div>
+
+        <div data-role="page" data-title="2539 Robot Dashboard" id="main">
 
             <div role="main" class="ui-content">
                 <div class="ui-grid-a">
@@ -55,10 +59,6 @@
 
 
         <div data-role="page" data-title="Configure Robot" id="config">
-
-            <div data-role="header" data-add-back-btn="true">
-                <h1>2539</h1>
-            </div>
 
             <div role="main" class="ui-content">
                 <form id="save-config">
@@ -171,6 +171,14 @@
                         </div></div>
                     </div>
                 </form>
+            </div>
+
+        </div>
+
+        <div data-role="page" data-title="2539 Debug Console" id="debug">
+
+            <div role="main" class="ui-content">
+                <h1>Eat a muffin</h1>
             </div>
 
         </div>

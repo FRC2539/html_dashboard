@@ -1,11 +1,11 @@
-.ui-page-theme-a .ui-header .ui-btn
+.ui-overlay-a .ui-header .ui-btn
 {
     background-color: #f7931e;
     color: #ffffff;
     text-shadow: 0 1px 0 #444444;
 }
 
-.ui-page-theme-a .ui-header .ui-btn:hover
+.ui-overlay-a .ui-header .ui-btn:hover
 {
     background-color: #ffa32e;
     color: #ffffff;
