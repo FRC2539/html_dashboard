@@ -45,6 +45,8 @@ $(document).ready(function() {
 
     });
 
+    $("[data-role='header']").toolbar();
+
     var addAlertListener = function(color, alert) {
         NetworkTables.addKeyListener(
             '/SmartDashboard/' + alert.key,
