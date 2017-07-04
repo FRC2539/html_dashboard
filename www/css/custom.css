@@ -69,3 +69,12 @@
     z-index: 10;
     display: none;
 }
+
+#networktables {
+    list-style-type: none;
+    padding: 0;
+}
+
+#networktables li li {
+    padding-left:4em;
+}

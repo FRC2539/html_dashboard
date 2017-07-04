@@ -21,6 +21,7 @@
         <script src="js/ohsnap.min.js"></script>
         <script src="js/index.js"></script>
         <script src="js/config.js"></script>
+        <script src="js/debug.js"></script>
     </head>
     <body class="ui-page-theme-a">
         <div data-role="header">
@@ -178,7 +179,25 @@
         <div data-role="page" data-title="2539 Debug Console" id="debug">
 
             <div role="main" class="ui-content">
-                <h1>Eat a muffin</h1>
+                <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <label for="set">Network Tables</label>
+                    <ul data-role="collapsibleset" id="networktables">
+                        <li data-role="collapsible" id="set1" data-collapsed="true">
+                            <h3>DriveTrain</h3>
+                            <ul data-role="listview">
+                                <li>maxSpeed</li>
+                                <li>preciseSpeed</li>
+                            </ul>
+                        </li>
+                        <li data-role="collapsible" id="set2" data-collapsed="true">
+                            <h3>Shooter</h3>
+                            <ul data-role="listview">
+                                <li>speed</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
         </div>
