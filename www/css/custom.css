@@ -70,11 +70,23 @@
     display: none;
 }
 
-#networktables {
-    list-style-type: none;
+#networktables, #networktables ul {
+    list-style-type: none !important;
     padding: 0;
 }
 
-#networktables li li {
-    padding-left:4em;
+#networktables ul {
+    margin: -10px 0;
+}
+
+#networktables .ui-collapsible-content
+{
+    border-left-width: 5px;
+    margin-top: 1px;
+    padding-top: -1px;
+}
+
+#networktables h3 span
+{
+    float: right;
 }
