@@ -57,4 +57,32 @@ $(document).ready(function($) {
 
     }, true);
 
+    NetworkTables.addKeyListener(
+        '/SmartDashboard/Active Commands/Ids',
+        function(key, ids, isNew) {
+            var names = NetworkTables.getValue(
+                '/SmartDashboard/Active Commands/Names'
+            );
+
+            var html = '';
+            for (var i in ids)
+            {
+                html += '<button class="ui-btn ui-corner-all ui-shadow ui-icon-forbidden ui-btn-icon-right" data-id="' + ids[i] + '">' + names[i] + '</button>';
+            }
+
+            $('#active-commands').html(html);
+        },
+        true
+    );
+
+    $('#active-commands').click('button', function(e) {
+        var $button = $(e.target);
+        var id = parseInt($button.data('id'));
+        NetworkTables.putValue(
+            '/SmartDashboard/Active Commands/Cancel',
+            [id]
+        );
+        $button.hide();
+    });
+
 });

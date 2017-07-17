@@ -90,3 +90,8 @@
 {
     float: right;
 }
+
+.ui-grid-a > div
+{
+    padding-right: 1em;
+}
