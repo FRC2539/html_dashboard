@@ -91,7 +91,13 @@
     float: right;
 }
 
-.ui-grid-a > div
+.ui-grid-a > div,
+.ui-grid-b > div
 {
     padding-right: 1em;
+}
+
+.ui-grid-b .ui-grid-b .ui-block-c
+{
+    padding-right: 0px;
 }

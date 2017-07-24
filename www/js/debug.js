@@ -1,7 +1,12 @@
 $(document).ready(function($) {
 
-    function addItem($container, id, name) {
-        var li = '<li data-role="collapsible">';
+    function addItem($container, id, name, last) {
+        var li = '<li';
+        if ( ! last)
+        {
+            li += ' data-role="collapsible"';
+        }
+        li += '>';
         $container.append(
             $(li)
                 .prop('id', id)
@@ -17,6 +22,11 @@ $(document).ready(function($) {
         var $parent = $('#networktables');
         for (var i in key)
         {
+            var last = (i == key.length - 1);
+            if (last && Array.isArray(value))
+            {
+                last = false;
+            }
             id += '-' + key[i].replace(/ /g, '_').replace(/~/g, '');
             if ($('#' + id).length == 0)
             {
@@ -30,17 +40,36 @@ $(document).ready(function($) {
                                 .prop('id', set)
                         );
                     }
-                    addItem($('#' + set), id, key[i]);
+                    addItem($('#' + set), id, key[i], last);
                 }
                 else
                 {
-                    addItem($parent, id, key[i]);
+                    addItem($parent, id, key[i], last);
                 }
             }
             $parent = $('#' + id);
         }
 
-        if ( ! Array.isArray(value))
+        if (Array.isArray(value))
+        {
+            var output = '';
+            for (var i in value)
+            {
+                output += '<li>' + value[i] + '</li>';
+            }
+
+            if ($('#' + id + '-val').length)
+            {
+                $('#' + id + '-val').html(output);
+            }
+            else
+            {
+                $parent.append(
+                    $('<ul id="' + id + '-val">' + output + '</ul>')
+                );
+            }
+        }
+        else
         {
             if ($('#' + id + '-val').length)
             {
