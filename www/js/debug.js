@@ -10,7 +10,7 @@ $(document).ready(function($) {
         $container.append(
             $(li)
                 .prop('id', id)
-                .append('<h3>' + name + '</h3>')
+                .append('<h3 class="value">' + name + '</h3>')
         );
     }
 
@@ -78,7 +78,7 @@ $(document).ready(function($) {
             else
             {
                 $parent.find('h3').append(
-                    $('<span id="' + id + '-val">(' + value + ')</span>')
+                    $('<span id="' + id + '-val">' + value + '</span>')
                 );
             }
         }
