@@ -73,7 +73,7 @@ $(document).ready(function($) {
         {
             if ($('#' + id + '-val').length)
             {
-                $('#' + id + '-val').html('(' + value + ')');
+                $('#' + id + '-val').html('' + value + '');
             }
             else
             {
@@ -85,7 +85,7 @@ $(document).ready(function($) {
         $('#networktables').trigger('create');
 
     }, true);
-
+var commands=[];
     NetworkTables.addKeyListener(
         '/SmartDashboard/Active Commands/Ids',
         function(key, ids, isNew) {
@@ -96,6 +96,10 @@ $(document).ready(function($) {
             var html = '';
             for (var i in ids)
             {
+                if (commands.includes(names[i]))
+                {
+                    continue;
+                }
                 html += '<button class="ui-btn ui-corner-all ui-shadow ui-icon-forbidden ui-btn-icon-right" data-id="' + ids[i] + '">' + names[i] + '</button>';
             }
 
@@ -104,6 +108,40 @@ $(document).ready(function($) {
         true
     );
 
+
+
+     NetworkTables.addGlobalListener(function(key, value, isNew) {
+         if (/^\/SmartDashboard\/Commands/.test(key) == false)
+             return;
+
+
+         key=key.split('/');
+         var type=key.pop();
+         if (type=='name')
+         {
+             commands.push(value);
+            key = key.join('/') + '/running';
+             var id='command-' + commands.length;
+             var html = '<button class="ui-btn ui-corner-all ui-shadow ui-btn-icon-right" id="' + id + '" data-key="' + key +'">' + value + '</button>';
+
+            $('#stored-commands').html(html);
+
+            NetworkTables.addKeyListener(
+                key,
+                function(key, value, isNew) {
+                    if (value)
+                    {
+                      $('#' + id).removeClass('ui-icon-action').addClass('ui-icon-forbidden');
+                    }
+                    else
+                    {
+                        $('#' + id).removeClass('ui-icon-forbidden').addClass('ui-icon-action');
+                    }
+                },
+                true
+                          );
+         }
+    }, true);
     $('#active-commands').click('button', function(e) {
         var $button = $(e.target);
         var id = parseInt($button.data('id'));
@@ -113,5 +151,12 @@ $(document).ready(function($) {
         );
         $button.hide();
     });
-
+$('#stored-commands').click('button', function(e) {
+        var $button = $(e.target);
+        console.log($button.data('key'));
+        NetworkTables.putValue(
+            $button.data('key'),
+            $button.hasClass('ui-icon-action')
+        );
+    });
 });
