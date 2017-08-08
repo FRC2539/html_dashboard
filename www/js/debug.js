@@ -73,7 +73,7 @@ $(document).ready(function($) {
         {
             if ($('#' + id + '-val').length)
             {
-                $('#' + id + '-val').html('' + value + '');
+                $('#' + id + '-val').html(value);
             }
             else
             {
@@ -85,7 +85,53 @@ $(document).ready(function($) {
         $('#networktables').trigger('create');
 
     }, true);
-var commands=[];
+
+    var commands=[];
+
+    NetworkTables.addGlobalListener(function(key, value, isNew) {
+        if (/^\/SmartDashboard\/Commands\/[\w ]+\/name$/.test(key) == false)
+             return;
+
+        key = key.split('/');
+        key.pop();
+        key = key.join('/') + '/running';
+
+        commands.push(value);
+
+        var id = 'command-' + commands.length;
+        var html = '<button class="ui-btn ui-corner-all ui-shadow '
+            + 'ui-btn-icon-right" id="' + id + '">' + value + '</button>';
+
+
+        $('#stored-commands').html(html);
+
+        $('#' + id).click(function(e) {
+            NetworkTables.putValue(
+                key,
+                $(this).hasClass('ui-icon-action')
+            );
+        });
+
+        NetworkTables.addKeyListener(
+            key,
+            function(key, value, isNew) {
+                if (value)
+                {
+                    $('#' + id)
+                        .removeClass('ui-icon-action')
+                        .addClass('ui-icon-forbidden');
+                }
+                else
+                {
+                    $('#' + id)
+                        .removeClass('ui-icon-forbidden')
+                        .addClass('ui-icon-action');
+                }
+            },
+            true
+        );
+    }, true);
+
     NetworkTables.addKeyListener(
         '/SmartDashboard/Active Commands/Ids',
         function(key, ids, isNew) {
@@ -108,55 +154,12 @@ var commands=[];
         true
     );
 
-
-
-     NetworkTables.addGlobalListener(function(key, value, isNew) {
-         if (/^\/SmartDashboard\/Commands/.test(key) == false)
-             return;
-
-
-         key=key.split('/');
-         var type=key.pop();
-         if (type=='name')
-         {
-             commands.push(value);
-            key = key.join('/') + '/running';
-             var id='command-' + commands.length;
-             var html = '<button class="ui-btn ui-corner-all ui-shadow ui-btn-icon-right" id="' + id + '" data-key="' + key +'">' + value + '</button>';
-
-            $('#stored-commands').html(html);
-
-            NetworkTables.addKeyListener(
-                key,
-                function(key, value, isNew) {
-                    if (value)
-                    {
-                      $('#' + id).removeClass('ui-icon-action').addClass('ui-icon-forbidden');
-                    }
-                    else
-                    {
-                        $('#' + id).removeClass('ui-icon-forbidden').addClass('ui-icon-action');
-                    }
-                },
-                true
-                          );
-         }
-    }, true);
     $('#active-commands').click('button', function(e) {
         var $button = $(e.target);
         var id = parseInt($button.data('id'));
         NetworkTables.putValue(
             '/SmartDashboard/Active Commands/Cancel',
             [id]
-        );
-        $button.hide();
-    });
-$('#stored-commands').click('button', function(e) {
-        var $button = $(e.target);
-        console.log($button.data('key'));
-        NetworkTables.putValue(
-            $button.data('key'),
-            $button.hasClass('ui-icon-action')
         );
     });
 });
