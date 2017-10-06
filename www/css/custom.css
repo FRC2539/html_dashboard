@@ -1,15 +1,15 @@
-.ui-overlay-a .ui-header .ui-btn
+.ui-overlay-a .ui-header .ui-btn,
+.ui-overlay-a .ui-footer .ui-btn
 {
     background-color: #f7931e;
     color: #ffffff;
     text-shadow: 0 1px 0 #444444;
 }
 
-.ui-overlay-a .ui-header .ui-btn:hover
+.ui-overlay-a .ui-header .ui-btn:hover,
+.ui-overlay-a .ui-footer .ui-btn:hover
 {
     background-color: #ffa32e;
-    color: #ffffff;
-    text-shadow: 0 1px 0 #444444;
 }
 
 #connection-indicator
@@ -91,6 +91,12 @@
     float: right;
 }
 
+.value
+{
+    font-size: 16px;
+    color: darkgoldenrod;
+}
+
 .ui-grid-a > div,
 .ui-grid-b > div
 {
@@ -101,7 +107,9 @@
 {
     padding-right: 0px;
 }
-.value{
-font-size:16px;
-    color:darkgoldenrod
+
+#debug div.ui-footer
+{
+    box-sizing: border-box;
+    text-align: right;
 }

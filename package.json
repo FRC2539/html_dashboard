@@ -2,6 +2,7 @@
   "name": "RobotDashboard",
   "main": "node.html",
   "window": {
+    "frame": false,
     "toolbar": false
   },
   "scripts": {

@@ -8,13 +8,13 @@
         <h1>Loading...</h1>
         <script type="text/javascript">
             var win = nw.Window.get();
+            win.moveTo(0,0);
             win.maximize();
 
             win.on('maximize', function() {
                 var max_width = win.width;
                 var max_height = win.height;
-                win.restore();
-                win.moveTo(0, 0);
+                win.unmaximize();
                 win.resizeTo(max_width, max_height - 177);
 
                 window.location = 'http://localhost:2539/';

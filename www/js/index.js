@@ -167,4 +167,8 @@ $(document).ready(function() {
         },
         true
     );
+
+    $('#close-dashboard').click(function(e) {
+        window.close();
+    });
 });
