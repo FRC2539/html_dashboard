@@ -97,6 +97,12 @@
     color: darkgoldenrod;
 }
 
+.ui-grid-a,
+.ui-grid-b
+{
+    padding-left: 5px;
+}
+
 .ui-grid-a > div,
 .ui-grid-b > div
 {
