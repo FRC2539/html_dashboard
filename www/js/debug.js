@@ -146,7 +146,9 @@ $(document).ready(function($) {
                 {
                     continue;
                 }
-                html += '<button class="ui-btn ui-corner-all ui-shadow ui-icon-forbidden ui-btn-icon-right" data-id="' + ids[i] + '">' + names[i] + '</button>';
+                html += '<button class="ui-btn ui-corner-all ui-shadow '
+                    + 'ui-icon-forbidden ui-btn-icon-right" data-id="' + ids[i]
+                    + '">' + names[i] + '</button>';
             }
 
             $('#active-commands').html(html);
@@ -161,5 +163,9 @@ $(document).ready(function($) {
             '/SmartDashboard/Active Commands/Cancel',
             [id]
         );
+    });
+
+    $('#close-dashboard').click(function(e) {
+        window.close();
     });
 });
