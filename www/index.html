@@ -74,10 +74,10 @@
                             <input type="number" id="drivetrain-precisespeed" step="1" min="0" data-key="/DriveTrain/preciseSpeed" required>
 
                             <label for="drivetrain-ticksperinch">Encoder Ticks / Inch</label>
-                            <input type="number" id="drivetrain-ticksperinch" step=".01" min="0" data-key="/DriveTrain/ticksPerInch" required>
+                            <input type="number" id="drivetrain-ticksperinch" step="0.01" min="0" data-key="/DriveTrain/ticksPerInch" required>
 
                             <label for="drivetrain-width" title="Distance between wheels (inches)">Drive Base Width</label>
-                            <input type="number" id="drivetrain-width" step=".1" min="0" data-key="/DriveTrain/width" required>
+                            <input type="number" id="drivetrain-width" step="0.1" min="0" data-key="/DriveTrain/width" required>
 
                             <div class="ui-grid-b">
                                 <div class="ui-block-a">
@@ -156,6 +156,9 @@
                             
                             <label for="gear-handoffdistance">Hand Off Distance</label>
                             <input type="number" id="gear-handoffdistance" step="1" min="0" data-key="/Gear/HandOffDistance" required>
+
+                            <label for="gear-pixelsperdegree">Pixels Per Degree</label>
+                            <input type="number" id="gear-pixelsperdegree" step="0.01" min="0" data-key="/Gear/pixelsPerDegree" required>
 
                         </div>
                     </div>
