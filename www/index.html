@@ -40,7 +40,6 @@
                 <div class="ui-grid-a">
                     <div class="ui-block-a">
                         <div id="camera1"></div>
-                        <div id="liftDistance">Distance: <span></span>"</div>
                     </div>
                     <div class="ui-block-b">
                         <div id="camera2"></div>
@@ -67,10 +66,10 @@
                         <div class="ui-block-a">
                             <h2>Drive Train</h2>
 
-                            <label for="drivetrain-maxspeed">Max Speed</label>
-                            <input type="number" id="drivetrain-maxspeed" step="1" min="0" data-key="/DriveTrain/maxSpeed" required>
+                            <label for="drivetrain-normalspeed">Normal Speed</label>
+                            <input type="number" id="drivetrain-normalspeed" step="1" min="0" data-key="/DriveTrain/normalSpeed" required>
 
-                            <label for="drivetrain-precisespeed">Precise Max Speed</label>
+                            <label for="drivetrain-precisespeed">Precise Speed</label>
                             <input type="number" id="drivetrain-precisespeed" step="1" min="0" data-key="/DriveTrain/preciseSpeed" required>
 
                             <label for="drivetrain-ticksperinch">Encoder Ticks / Inch</label>
@@ -89,10 +88,10 @@
                                     <input type="number" id="drivetrain-speed-i" step="0.0001" min="0" data-key="/DriveTrain/Speed/I" required>
                                 </div>
                                 <div class="ui-block-c">
-                                    <label for="drivetrain-speed-d">D</label>
-                                    <input type="number" id="drivetrain-speed-d" step="0.0001" min="0" data-key="/DriveTrain/Speed/D" required>
+                                    <label for="drivetrain-speed-f">F</label>
+                                    <input type="number" id="drivetrain-speed-f" step="0.0001" min="0" data-key="/DriveTrain/Speed/F" required>
                                 </div>
-                                <input type="hidden" value="" data-key="/DriveTrain/Speed/F">
+                                <input type="hidden" value="" data-key="/DriveTrain/Speed/D">
                                 <input type="hidden" value="" data-key="/DriveTrain/Speed/IZone">
                                 <input type="hidden" value="" data-key="/DriveTrain/Speed/RampRate">
                             </div>
@@ -115,51 +114,8 @@
                             </div>
                         </div>
                         <div class="ui-block-b">
-                            <h2>Shooter</h2>
-
-                            <label for="shooter-speed">Shooting Speed</label>
-                            <input type="number" id="shooter-speed" step="1" min="0" data-key="/Shooter/speed" required>
-
-                            
-                            <div class="ui-grid-b">
-                                <div class="ui-block-a">
-                                    <label for="shooter-speed-p">Speed P</label>
-                                    <input type="number" id="shooter-speed-p" step="0.0001" min="0" data-key="/Shooter/Speed/P" required>
-                                </div>
-                                <div class="ui-block-b">
-                                    <label for="shooter-speed-i">I</label>
-                                    <input type="number" id="shooter-speed-i" step="0.0001" min="0" data-key="/Shooter/Speed/I" required>
-                                </div>
-                                <div class="ui-block-c">
-                                    <label for="shooter-speed-f">F</label>
-                                    <input type="number" id="shooter-speed-f" step="0.0001" min="0" data-key="/Shooter/Speed/F" required>
-                                </div>
-                                <input type="hidden" value="0" data-key="/Shooter/Speed/D">
-                                <input type="hidden" value="" data-key="/Shooter/Speed/IZone">
-                                <input type="hidden" value="" data-key="/Shooter/Speed/RampRate">
-                            </div>
                         </div>
                         <div class="ui-block-c">
-                            <h2>Autonomous</h2>
-
-                            <fieldset data-role="controlgroup" data-type="horizontal" id="autolocation">
-                                <legend>Robot Location</legend>
-                                <label for="autonomous-left">Left</label>
-                                <input type="radio" name="autolocation" id="autonomous-left" value="60" data-key="/Autonomous/robotLocation">
-
-                                <label for="autonomous-middle">Middle</label>
-                                <input type="radio" name="autolocation" id="autonomous-middle" value="0" data-key="/Autonomous/robotLocation">
-
-                                <label for="autonomous-right">Right</label>
-                                <input type="radio" name="autolocation" id="autonomous-right" value="-60" data-key="/Autonomous/robotLocation">
-                            </fieldset>
-                            
-                            <label for="gear-handoffdistance">Hand Off Distance</label>
-                            <input type="number" id="gear-handoffdistance" step="1" min="0" data-key="/Gear/HandOffDistance" required>
-
-                            <label for="gear-pixelsperdegree">Pixels Per Degree</label>
-                            <input type="number" id="gear-pixelsperdegree" step="0.01" min="0" data-key="/Gear/pixelsPerDegree" required>
-
                         </div>
                     </div>
                     <div class="ui-grid-b">

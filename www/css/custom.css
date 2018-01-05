@@ -58,18 +58,6 @@
 {
     position: relative;
 }
-
-#liftDistance {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-size: smaller;
-    color: #ff8300;
-    text-shadow: 1px 1px 0 #fff;
-    z-index: 10;
-    display: none;
-}
-
 #networktables, #networktables ul {
     list-style-type: none !important;
     padding: 0;

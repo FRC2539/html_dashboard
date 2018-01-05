@@ -117,6 +117,14 @@ $(document).ready(function() {
         {
             return;
         }
+        if (options.length <= 1)
+        {
+            $chooserGroup.hide();
+        }
+        else
+        {
+            $chooserGroup.show();
+        }
 
         var selected = NetworkTables.getValue(chooser + 'selected');
         if (selected === undefined)
@@ -152,19 +160,4 @@ $(document).ready(function() {
     NetworkTables.addKeyListener(chooser + 'options', updateChooser, true);
     NetworkTables.addKeyListener(chooser + 'default', updateChooser, true);
     NetworkTables.addKeyListener(chooser + 'selected', updateChooser, true);
-
-    NetworkTables.addKeyListener(
-        '/cameraTarget/liftVisible',
-        function(key, val, isNew) {
-            $('#liftDistance').toggle(val);
-        },
-        true
-    );
-    NetworkTables.addKeyListener(
-        '/cameraTarget/liftDistance',
-        function(key, val, isNew) {
-            $('#liftDistance > span')[0].textContent = Math.round(val);
-        },
-        true
-    );
 });
