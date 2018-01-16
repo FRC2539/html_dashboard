@@ -39,6 +39,7 @@ $(document).ready(function() {
             {
                 return;
             }
+            key = key.substring(1);
 
             if (isSimple($this))
             {
