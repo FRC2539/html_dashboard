@@ -71,7 +71,7 @@ $(document).ready(function() {
                 if ( ! empty)
                 {
                     NetworkTables.putValue(
-                        '/SmartDashboard/' + alert.key,
+                        'SmartDashboard/' + alert.key,
                         ['']
                     );
                 }
@@ -108,7 +108,7 @@ $(document).ready(function() {
             $this = $('#' + $this.prop('for'));
         }
 
-        NetworkTables.putValue(chooser + "selected", $this.val());
+        NetworkTables.putValue(chooser.substring(1) + "selected", $this.val());
     });
 
     var updateChooser = function(key, val, isNew) {
