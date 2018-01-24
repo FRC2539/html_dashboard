@@ -19,7 +19,9 @@
         <script src="/networktables/camera.js"></script>
         <script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <script src="js/ohsnap.min.js"></script>
+        <script src="js/tools.js"></script>
         <script src="js/index.js"></script>
+        <script src="js/drive.js"></script>
         <script src="js/config.js"></script>
         <script src="js/debug.js"></script>
     </head>
@@ -39,10 +41,55 @@
             <div role="main" class="ui-content">
                 <div class="ui-grid-a">
                     <div class="ui-block-a">
-                        <div id="camera1"></div>
+                        <div id="camera" class="camera"></div>
                     </div>
                     <div class="ui-block-b">
-                        <div id="camera2"></div>
+                        <form id="auto-settings">
+                            <h2>Autonomous</h2>
+                            <fieldset data-role="controlgroup" data-type="horizontal" id="autolocation">
+                                <legend>Robot Location</legend>
+                                <label for="autonomous-left">Left</label>
+                                <input type="radio" name="autolocation" id="autonomous-left" value="L" data-key="/Autonomous/robotLocation">
+
+                                <label for="autonomous-middle">Middle</label>
+                                <input type="radio" name="autolocation" id="autonomous-middle" value="C" data-key="/Autonomous/robotLocation">
+
+                                <label for="autonomous-right">Right</label>
+                                <input type="radio" name="autolocation" id="autonomous-right" value="R" data-key="/Autonomous/robotLocation">
+                            </fieldset>
+                            <fieldset data-role="controlgroup" data-type="horizontal" id="autoswitch">
+                                <legend>Flip the Switch</legend>
+                                <label for="switch-never">Never</label>
+                                <input type="radio" name="switch" id="switch-never" value="never" data-key="/Autonomous/switch">
+
+                                <label for="switch-easy">If Easy</label>
+                                <input type="radio" name="switch" id="switch-easy" value="easy" data-key="/Autonomous/switch">
+
+                                <label for="switch-always">Always</label>
+                                <input type="radio" name="switch" id="switch-always" value="always" data-key="/Autonomous/switch">
+                            </fieldset>
+                            <fieldset data-role="controlgroup" data-type="horizontal" id="autoscale">
+                                <legend>Flip the Scale</legend>
+                                <label for="scale-never">Never</label>
+                                <input type="radio" name="scale" id="scale-never" value="never" data-key="/Autonomous/scale">
+
+                                <label for="scale-easy">If Easy</label>
+                                <input type="radio" name="scale" id="scale-easy" value="easy" data-key="/Autonomous/scale">
+
+                                <label for="scale-always">Always</label>
+                                <input type="radio" name="scale" id="scale-always" value="always" data-key="/Autonomous/scale">
+                            </fieldset>
+                        </form>
+                        <div id="switch-colors" class="randomized">
+                            Switch<br>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div id="scale-colors" class="randomized">
+                            Scale<br>
+                            <div></div>
+                            <div></div>
+                        </div>
                     </div>
                 </div>
 
@@ -108,41 +155,6 @@
                             </div>
                         </div>
                         <div class="ui-block-b">
-                            <h2>Autonomous</h2>
-                            <fieldset data-role="controlgroup" data-type="horizontal" id="autolocation">
-                                <legend>Robot Location</legend>
-                                <label for="autonomous-left">Left</label>
-                                <input type="radio" name="autolocation" id="autonomous-left" value="L" data-key="/Autonomous/robotLocation">
-
-                                <label for="autonomous-middle">Middle</label>
-                                <input type="radio" name="autolocation" id="autonomous-middle" value="C" data-key="/Autonomous/robotLocation">
-
-                                <label for="autonomous-right">Right</label>
-                                <input type="radio" name="autolocation" id="autonomous-right" value="R" data-key="/Autonomous/robotLocation">
-                            </fieldset>
-                            <fieldset data-role="controlgroup" data-type="horizontal" id="autoswitch">
-                                <legend>Flip the Switch</legend>
-                                <label for="switch-never">Never</label>
-                                <input type="radio" name="switch" id="switch-never" value="never" data-key="/Autonomous/switch">
-
-                                <label for="switch-easy">If Easy</label>
-                                <input type="radio" name="switch" id="switch-easy" value="easy" data-key="/Autonomous/switch">
-
-                                <label for="switch-always">Always</label>
-                                <input type="radio" name="switch" id="switch-always" value="always" data-key="/Autonomous/switch">
-                            </fieldset>
-                            <fieldset data-role="controlgroup" data-type="horizontal" id="autoscale">
-                                <legend>Flip the Scale</legend>
-                                <label for="scale-never">Never</label>
-                                <input type="radio" name="scale" id="scale-never" value="never" data-key="/Autonomous/scale">
-
-                                <label for="scale-easy">If Easy</label>
-                                <input type="radio" name="scale" id="scale-easy" value="easy" data-key="/Autonomous/scale">
-
-                                <label for="scale-always">Always</label>
-                                <input type="radio" name="scale" id="scale-always" value="always" data-key="/Autonomous/scale">
-                            </fieldset>
-
                         </div>
                         <div class="ui-block-c">
                         </div>

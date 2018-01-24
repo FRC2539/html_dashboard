@@ -39,7 +39,7 @@
     margin-bottom: 1em;
 }
 
-#camera1, #camera2
+.camera
 {
     margin: 0.5em;
     background-color: #000;
@@ -47,8 +47,7 @@
     max-height: 360px;
 }
 
-#camera1 > img[src="/img/waiting.gif"],
-#camera2 > img[src="/img/waiting.gif"]
+.camera > img[src="/img/waiting.gif"]
 {
     margin: 3em auto;
     width: 40% !important;
@@ -57,6 +56,38 @@
 #main .ui-grid-a > div
 {
     position: relative;
+}
+
+.randomized {
+    width: 7em;
+    display: inline-block;
+    position: relative;
+    float: left;
+    margin-left: 1em;
+    margin-top: 1em;
+    text-align: center;
+}
+
+.randomized > div {
+    height: 3em;
+    width: 3em;
+    display: inline-block;
+    background-color: gray;
+    box-sizing: border-box;
+    border: 3px ridge white;
+}
+
+.randomized.current > div.red {
+    background-color: red;
+}
+
+.randomized.current > div.blue {
+    background-color: blue;
+}
+
+.randomized.current > div.ours {
+    opacity: 1;
+    border-style: double;
 }
 
 #networktables, #networktables ul {
