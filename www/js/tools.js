@@ -51,7 +51,6 @@ var tools = function() {
             NetworkTables.addKeyListener(
                 $this.data('key'),
                 function(key, val, isNew) {
-                    console.log(key);
                     if (isSimple($this))
                     {
                         // Round number inputs to their step, if applicable.
@@ -69,12 +68,13 @@ var tools = function() {
                     {
                         if (val == $this.val() && ! $this.is(':checked'))
                         {
-                            $this.attr('checked', true).checkboxradio('refresh');
+                            $this.attr('checked', true);
                         }
                         else if (val != $this.val() && $this.is(':checked'))
                         {
-                            $this.attr('checked', false).checkboxradio('refresh');
+                            $this.attr('checked', false);
                         }
+                        $this.checkboxradio('refresh');
                     }
                     else if ($this.prop('type') == 'checkbox')
                     {
