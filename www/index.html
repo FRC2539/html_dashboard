@@ -48,36 +48,48 @@
                             <h2>Autonomous</h2>
                             <fieldset data-role="controlgroup" data-type="horizontal" id="autolocation">
                                 <legend>Robot Location</legend>
-                                <label for="autonomous-left">Left</label>
-                                <input type="radio" name="autolocation" id="autonomous-left" value="L" data-key="/Autonomous/robotLocation">
-
-                                <label for="autonomous-middle">Middle</label>
-                                <input type="radio" name="autolocation" id="autonomous-middle" value="C" data-key="/Autonomous/robotLocation">
-
-                                <label for="autonomous-right">Right</label>
-                                <input type="radio" name="autolocation" id="autonomous-right" value="R" data-key="/Autonomous/robotLocation">
+                                <label>
+                                    Left
+                                    <input type="radio" name="autolocation" value="L" data-key="/Autonomous/robotLocation">
+                                </label>
+                                <label>
+                                    Middle
+                                    <input type="radio" name="autolocation" value="C" data-key="/Autonomous/robotLocation">
+                                </label>
+                                <label>
+                                    Right
+                                    <input type="radio" name="autolocation" value="R" data-key="/Autonomous/robotLocation">
+                                </label>
                             </fieldset>
                             <fieldset data-role="controlgroup" data-type="horizontal" id="autoswitch">
                                 <legend>Flip the Switch</legend>
-                                <label for="switch-never">Never</label>
-                                <input type="radio" name="switch" id="switch-never" value="never" data-key="/Autonomous/switch">
-
-                                <label for="switch-easy">If Easy</label>
-                                <input type="radio" name="switch" id="switch-easy" value="easy" data-key="/Autonomous/switch">
-
-                                <label for="switch-always">Always</label>
-                                <input type="radio" name="switch" id="switch-always" value="always" data-key="/Autonomous/switch">
+                                <label>
+                                    Never
+                                    <input type="radio" name="switch" value="never" data-key="/Autonomous/switch">
+                                </label>
+                                <label>
+                                    If Easy
+                                    <input type="radio" name="switch" value="easy" data-key="/Autonomous/switch">
+                                </label>
+                                <label>
+                                    Always
+                                    <input type="radio" name="switch" value="always" data-key="/Autonomous/switch">
+                                </label>
                             </fieldset>
                             <fieldset data-role="controlgroup" data-type="horizontal" id="autoscale">
                                 <legend>Flip the Scale</legend>
-                                <label for="scale-never">Never</label>
-                                <input type="radio" name="scale" id="scale-never" value="never" data-key="/Autonomous/scale">
-
-                                <label for="scale-easy">If Easy</label>
-                                <input type="radio" name="scale" id="scale-easy" value="easy" data-key="/Autonomous/scale">
-
-                                <label for="scale-always">Always</label>
-                                <input type="radio" name="scale" id="scale-always" value="always" data-key="/Autonomous/scale">
+                                <label>
+                                    Never
+                                    <input type="radio" name="scale" value="never" data-key="/Autonomous/scale">
+                                </label>
+                                <label>
+                                    If Easy
+                                    <input type="radio" name="scale" value="easy" data-key="/Autonomous/scale">
+                                </label>
+                                <label>
+                                    Always
+                                    <input type="radio" name="scale" value="always" data-key="/Autonomous/scale">
+                                </label>
                             </fieldset>
                         </form>
                         <div id="switch-colors" class="randomized">
@@ -96,8 +108,10 @@
                 <form>
                     <fieldset data-role="controlgroup" data-type="horizontal" id="automode">
                         <legend>Autonomous Program:</legend>
-                        <input type="radio" name="automode" id="automode-dummy" value="dummy" checked>
-                        <label for="automode-dummy">No Connection to Robot</label>
+                        <label>
+                            No Connection to Robot
+                            <input type="radio" name="automode" value="dummy" checked>
+                        </label>
                     </fieldset>
                 </form>
             </div>
@@ -113,68 +127,92 @@
                         <div class="ui-block-a">
                             <h2>Drive Train</h2>
 
-                            <label for="drivetrain-normalspeed">Normal Speed</label>
-                            <input type="number" id="drivetrain-normalspeed" step="1" min="0" data-key="/DriveTrain/normalSpeed" required>
                             <input type="hidden" data-key="/DriveTrain/maxSpeed">
-
-                            <label for="drivetrain-precisespeed">Precise Speed</label>
-                            <input type="number" id="drivetrain-precisespeed" step="1" min="0" data-key="/DriveTrain/preciseSpeed" required>
-
-                            <label for="drivetrain-ticksperinch">Encoder Ticks / Inch</label>
-                            <input type="number" id="drivetrain-ticksperinch" step="0.01" min="0" data-key="/DriveTrain/ticksPerInch" required>
-
-                            <label for="drivetrain-width" title="Distance between wheels (inches)">Drive Base Width</label>
-                            <input type="number" id="drivetrain-width" step="0.005" min="0" data-key="/DriveTrain/width" required>
+                            <label>
+                                Normal Speed
+                                <input type="number" step="1" min="0" data-key="/DriveTrain/normalSpeed" required>
+                            </label>
+                            <label>
+                                Precise Speed
+                                <input type="number" step="1" min="0" data-key="/DriveTrain/preciseSpeed" required>
+                            </label>
+                            <label>
+                                Encoder Ticks / Inch
+                                <input type="number" step="0.01" min="0" data-key="/DriveTrain/ticksPerInch" required>
+                            </label>
+                            <label title="Distance between wheels (inches)">
+                                Drive Base Width
+                                <input type="number" step="0.005" min="0" data-key="/DriveTrain/width" required>
+                            </label>
 
                             <div class="ui-grid-b">
                                 <div class="ui-block-a">
-                                    <label for="drivetrain-speed-p">P</label>
-                                    <input type="number" id="drivetrain-speed-p" step="0.0001" min="0" data-key="/DriveTrain/Speed/P" required>
+                                    <label>
+                                        P
+                                        <input type="number" step="0.0001" min="0" data-key="/DriveTrain/Speed/P" required>
+                                    </label>
                                 </div>
                                 <div class="ui-block-b">
-                                    <label for="drivetrain-speed-i">I</label>
-                                    <input type="number" id="drivetrain-speed-i" step="0.0001" min="0" data-key="/DriveTrain/Speed/I" required>
+                                    <label>
+                                        I
+                                        <input type="number" step="0.0001" min="0" data-key="/DriveTrain/Speed/I" required>
+                                    </label>
                                 </div>
                                 <div class="ui-block-c">
-                                    <label for="drivetrain-speed-d">D</label>
-                                    <input type="number" id="drivetrain-speed-d" step="0.0001" min="0" data-key="/DriveTrain/Speed/D" required>
+                                    <label>
+                                        D
+                                        <input type="number" step="0.0001" min="0" data-key="/DriveTrain/Speed/D" required>
+                                    </label>
                                 </div>
                             </div>
                             <div class="ui-grid-b">
                                 <div class="ui-block-a">
-                                    <label for="drivetrain-speed-f">F</label>
-                                    <input type="number" id="drivetrain-speed-f" step="0.0001" min="0" data-key="/DriveTrain/Speed/F" required>
+                                    <label>
+                                        F
+                                        <input type="number" step="0.0001" min="0" data-key="/DriveTrain/Speed/F" required>
+                                    </label>
                                 </div>
                                 <div class="ui-block-b">
-                                    <label for="drivetrain-speed-izone">I Zone</label>
-                                    <input type="number" id="drivetrain-speed-izone" step="1" min="0" data-key="/DriveTrain/Speed/IZone" required>
+                                    <label>
+                                        I Zone
+                                        <input type="number" step="1" min="0" data-key="/DriveTrain/Speed/IZone" required>
+                                    </label>
                                 </div>
                                 <div class="ui-block-c">
-                                    <label for="drivetrain-speed-ramp">Ramp Rate</label>
-                                    <input type="number" id="drivetrain-speed-ramp" step="0.0001" min="0" data-key="/DriveTrain/Speed/RampRate" required>
+                                    <label>
+                                        Ramp Rate
+                                        <input type="number" step="0.0001" min="0" data-key="/DriveTrain/Speed/RampRate" required>
+                                    </label>
                                 </div>
                             </div>
                         </div>
                         <div class="ui-block-b">
-                        <h2>Elevator</h2>
+                            <h2>Elevator Levels</h2>
 
-                        <label for="Elevator/ground">Elevator Ground</label>
-                        <input type="number" id="Elevator-ground"  step="1" data-key="/Elevator/ground" required>
-
-                        <label for="Elevator/exchange">Elevator Exchange</label>
-                        <input type="number" id="Elevator/exchange" step="1" data-key="/Elevator/exchange" required>
-
-                        <label  for="Elevator/portal">Elevator Portal</label>
-                        <input type="number" id="Elevator/portal" step="1" data-key="/Elevator/portal" required>
-
-                        <label for="Elevator/swich">Elevator Switch</label>
-                        <input type="number" id="Elevator/switch" step="1" data-key="/Elevator/switch" required>
-
-                        <label for="Elevator/scale">Elevator Scale</label>
-                        <input type="number" id="Elevator/scale" step="1" data-key="/Elevator/scale" required>
-
-                        <label for="Elevator/hang">Elevator Hang</lable>
-                        <input type="number" id="Elevator/hang" step="1" data-key="/Elevator/hang" required>
+                            <label>
+                                Elevator Ground
+                                <input type="number" step="1" data-key="/Elevator/ground" required>
+                            </label>
+                            <label>
+                                Elevator Exchange
+                                <input type="number" step="1" data-key="/Elevator/exchange" required>
+                            </label>
+                            <label>
+                                Elevator Portal
+                                <input type="number" step="1" data-key="/Elevator/portal" required>
+                            </label>
+                            <label>
+                                Elevator Switch
+                                <input type="number" step="1" data-key="/Elevator/switch" required>
+                            </label>
+                            <label>
+                                Elevator Scale
+                                <input type="number" step="1" data-key="/Elevator/scale" required>
+                            </label>
+                            <label>
+                                Elevator Hang
+                                <input type="number" step="1" data-key="/Elevator/hang" required>
+                            </lable>
                         </div>
                         <div class="ui-block-c">
                         </div>
@@ -197,7 +235,7 @@
             <div role="main" class="ui-content ui-alt-icon">
                 <div class="ui-grid-a">
                 <div class="ui-block-a">
-                    <label for="set">Network Tables</label>
+                    <label>Network Tables</label>
                     <ul data-role="collapsibleset" id="networktables">
                     </ul>
                 </div>

@@ -21,7 +21,7 @@ jQuery(document).ready(function($) {
         var $this = $(this);
         if ($this.is('label'))
         {
-            $this = $('#' + $this.prop('for'));
+            $this = $this.parent().children('input');
         }
 
         NetworkTables.putValue(chooser.substring(1) + "selected", $this.val());
@@ -53,17 +53,16 @@ jQuery(document).ready(function($) {
         for (var i in options)
         {
             $controlGroup.append(
-                $('<input>').attr({
-                    type: 'radio',
-                    name: 'automode',
-                    id: 'automode-' + i,
-                    value: options[i],
-                    checked: selected == options[i]
-                })
-            ).append(
                 $('<label>')
-                    .attr('for', 'automode-' + i)
                     .text(options[i])
+                    .append(
+                        $('<input>').attr({
+                            type: 'radio',
+                            name: 'automode',
+                            value: options[i],
+                            checked: selected == options[i]
+                        })
+                    )
             );
         }
         $controlGroup.trigger('create');
