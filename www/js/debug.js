@@ -1,5 +1,4 @@
 $(document).ready(function($) {
-
     function addItem($container, id, name, last) {
         var li = '<li';
         if ( ! last)
@@ -82,7 +81,7 @@ $(document).ready(function($) {
                 );
             }
         }
-        $('#networktables').trigger('create');
+        /*$('#networktables').trigger('create');*/
 
     }, true);
 
