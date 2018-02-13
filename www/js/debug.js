@@ -88,7 +88,7 @@ $(document).ready(function($) {
     var commands=[];
 
     NetworkTables.addGlobalListener(function(key, value, isNew) {
-        if (/^\/SmartDashboard\/Commands\/[\w ]+\/name$/.test(key) == false)
+        if (/^\/SmartDashboard\/Commands\/[\w ]+\/\.name$/.test(key) == false)
              return;
 
         key = key.split('/');
