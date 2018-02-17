@@ -74,7 +74,10 @@ var tools = function() {
                         {
                             $this.attr('checked', false);
                         }
-                        $this.checkboxradio('refresh');
+                        if ($this.checkboxradio('instance'))
+                        {
+                            $this.checkboxradio('refresh');
+                        }
                     }
                     else if ($this.prop('type') == 'checkbox')
                     {

@@ -14,6 +14,10 @@ $(document).ready(function($) {
     }
 
     NetworkTables.addGlobalListener(function(key, value, isNew) {
+        if (key.substring(0, 12) == '/LiveWindow/')
+        {
+            return
+        }
         key = key.split('/');
         key.shift();
 
@@ -81,7 +85,7 @@ $(document).ready(function($) {
                 );
             }
         }
-        /*$('#networktables').trigger('create');*/
+        $('#networktables').trigger('create');
 
     }, true);
 
@@ -102,11 +106,11 @@ $(document).ready(function($) {
             + 'ui-btn-icon-right" id="' + id + '">' + value + '</button>';
 
 
-        $('#stored-commands').html(html);
+        $('#stored-commands').append(html);
 
         $('#' + id).click(function(e) {
             NetworkTables.putValue(
-                key,
+                key.substring(1),
                 $(this).hasClass('ui-icon-action')
             );
         });
@@ -159,7 +163,7 @@ $(document).ready(function($) {
         var $button = $(e.target);
         var id = parseInt($button.data('id'));
         NetworkTables.putValue(
-            '/SmartDashboard/Active Commands/Cancel',
+            'SmartDashboard/Active Commands/Cancel',
             [id]
         );
     });
