@@ -90,6 +90,45 @@
     border-style: double;
 }
 
+#elevator-state {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 90px;
+    height: 100%;
+}
+
+#height-label {
+    position: relative;
+    height: 10%;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1;
+}
+
+#elevator-graphic {
+    height: 90%;
+    border-right: 2px solid #000;
+}
+
+#elevator-graphic #intake-position {
+    position: relative;
+    border-bottom: 2px solid #000;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#elevator-graphic #cube.has-cube {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #000;
+    background-color: #ff0;
+    box-sizing: border-box;
+}
+
 #networktables, #networktables ul {
     list-style-type: none !important;
     padding: 0;

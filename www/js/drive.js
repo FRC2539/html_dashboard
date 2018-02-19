@@ -130,4 +130,23 @@ jQuery(document).ready(function($) {
             NetworkTables.putValue('Autonomous/scale', '');
         }
     }, true);
+
+    // Elevator and Intake Display
+    NetworkTables.addKeyListener('/Elevator/label', function(key, val, isNew) {
+        $('#height-label').html(val);
+    });
+
+    NetworkTables.addKeyListener(
+        '/Elevator/position',
+        function(key, val, isNew) {
+            $('#intake-position').css(
+                'height',
+                (19000 - val) / 19000 * 90 + 10 + '%'
+            );
+        }
+    );
+
+    NetworkTables.addKeyListener('/Intake/hasCube', function(key, val, isNew) {
+        $('#cube').toggleClass('has-cube', val);
+    });
 });
