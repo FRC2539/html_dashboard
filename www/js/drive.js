@@ -136,12 +136,13 @@ jQuery(document).ready(function($) {
         $('#height-label').html(val);
     });
 
+    var elevatorMax = 20000
     NetworkTables.addKeyListener(
         '/Elevator/position',
         function(key, val, isNew) {
             $('#intake-position').css(
                 'height',
-                (19000 - val) / 19000 * 90 + 10 + '%'
+                (elevatorMax - val) / elevatorMax * 90 + 10 + '%'
             );
         }
     );

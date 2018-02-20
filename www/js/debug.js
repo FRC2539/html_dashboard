@@ -93,7 +93,19 @@ $(document).ready(function($) {
 
     NetworkTables.addGlobalListener(function(key, value, isNew) {
         if (/^\/SmartDashboard\/Commands\/[\w ]+\/\.name$/.test(key) == false)
+        {
              return;
+        }
+
+        if (value.indexOf('/') != -1)
+        {
+            return;
+        }
+
+        if (commands.includes(value))
+        {
+            return;
+        }
 
         key = key.split('/');
         key.pop();
