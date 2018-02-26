@@ -42,7 +42,7 @@ $(document).ready(function() {
                 if ( ! empty)
                 {
                     NetworkTables.putValue(
-                        'SmartDashboard/' + alert.key,
+                        '/SmartDashboard/' + alert.key,
                         ['']
                     );
                 }
