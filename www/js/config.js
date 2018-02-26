@@ -11,6 +11,7 @@ $(document).ready(function() {
         $inputs.each(tools.inputToNT);
     });
 
+    // Submit form with Ctrl + S
     $(window).keydown(function(e) {
         if ( ! (e.which == 83 && e.ctrlKey))
         {

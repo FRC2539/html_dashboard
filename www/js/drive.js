@@ -24,7 +24,7 @@ jQuery(document).ready(function($) {
             $this = $this.parent().children('input');
         }
 
-        NetworkTables.putValue(chooser.substring(1) + "selected", $this.val());
+        NetworkTables.putValue(chooser + "selected", $this.val());
     });
 
     var updateChooser = function(key, val, isNew) {
@@ -125,9 +125,9 @@ jQuery(document).ready(function($) {
         if ( ! connection)
         {
             resetFieldColors();
-            NetworkTables.putValue('Autonomous/robotLocation', '');
-            NetworkTables.putValue('Autonomous/switch', '');
-            NetworkTables.putValue('Autonomous/scale', '');
+            NetworkTables.putValue('/Autonomous/robotLocation', '');
+            NetworkTables.putValue('/Autonomous/switch', '');
+            NetworkTables.putValue('/Autonomous/scale', '');
         }
     }, true);
 

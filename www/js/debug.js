@@ -121,10 +121,7 @@ $(document).ready(function($) {
         $('#stored-commands').append(html);
 
         $('#' + id).click(function(e) {
-            NetworkTables.putValue(
-                key.substring(1),
-                $(this).hasClass('ui-icon-action')
-            );
+            NetworkTables.putValue(key, $(this).hasClass('ui-icon-action'));
         });
 
         NetworkTables.addKeyListener(
@@ -175,7 +172,7 @@ $(document).ready(function($) {
         var $button = $(e.target);
         var id = parseInt($button.data('id'));
         NetworkTables.putValue(
-            'SmartDashboard/Active Commands/Cancel',
+            '/SmartDashboard/Active Commands/Cancel',
             [id]
         );
     });
