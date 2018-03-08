@@ -24,7 +24,7 @@ jQuery(document).ready(function($) {
             $this = $this.parent().children('input');
         }
 
-        NetworkTables.putValue(chooser + "selected", $this.val());
+        NetworkTables.putValue(chooser + 'selected', $this.val());
     });
 
     var updateChooser = function(key, val, isNew) {
