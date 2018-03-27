@@ -3,7 +3,7 @@ jQuery(document).ready(function($) {
         container: '#camera',
         proto: null,
         host: 'tegra-ubuntu.local',
-        port: 8081,
+        port: 5801,
         image_url: '/?action=stream',
         data_url: '/settings.json',
         wait_img: '/img/waiting.gif',
