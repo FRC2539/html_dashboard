@@ -1,16 +1,8 @@
 $(document).ready(function() {
     var connectionChange = function(connected) {
-        if (connected)
+        if ( ! connected)
         {
-            $('#connection-indicator')
-                .addClass('connected')
-                .removeClass('disconnected');
-        }
-        else
-        {
-            $('#connection-indicator')
-                .addClass('disconnected')
-                .removeClass('connected');
+            window.location = 'disconnected.html';
         }
     };
 

@@ -121,15 +121,13 @@ jQuery(document).ready(function($) {
         $scale.addClass('current');
     });
 
-    NetworkTables.addRobotConnectionListener(function(connection) {
-        if ( ! connection)
-        {
-            resetFieldColors();
-            NetworkTables.putValue('/Autonomous/robotLocation', '');
-            NetworkTables.putValue('/Autonomous/switch', '');
-            NetworkTables.putValue('/Autonomous/scale', '');
-        }
-    }, true);
+    if (NetworkTables.isRobotConnected())
+    {
+        resetFieldColors();
+        NetworkTables.putValue('/Autonomous/robotLocation', '');
+        NetworkTables.putValue('/Autonomous/switch', '');
+        NetworkTables.putValue('/Autonomous/scale', '');
+    }
 
     // Elevator and Intake Display
     NetworkTables.addKeyListener('/Elevator/label', function(key, val, isNew) {
