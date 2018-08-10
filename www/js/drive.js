@@ -91,43 +91,47 @@ jQuery(document).ready(function($) {
         $colors.children('div').removeClass();
     };
 
-    NetworkTables.addKeyListener('/Field/layout', function(key, val, isNew) {
-        resetFieldColors();
-        var color = NetworkTables.getValue('/Field/color');
-        var cls = color + ' ours';
+    NetworkTables.addKeyListener(
+        '/FMSInfo/GameSpecificMessage',
+        function(key, val, isNew) {
+            resetFieldColors();
+            var color = 'blue';
+            if (NetworkTables.getValue('/FMSInfo/isRedAlliance'))
+            {
+                color = 'red';
+            }
+            var cls = color + ' ours';
 
-        var $switch = $('#switch-colors');
-        var $scale = $('#scale-colors');
+            var $switch = $('#switch-colors');
+            var $scale = $('#scale-colors');
 
-        if (val.substr(0, 1) == 'L')
-        {
-            $switch.children('div').first().addClass(cls);
+            if (val.substr(0, 1) == 'L')
+            {
+                $switch.children('div').first().addClass(cls);
+            }
+            else
+            {
+                $switch.children('div').first().next().addClass(cls);
+            }
+
+            if (val.substr(1, 1) == 'L')
+            {
+                $scale.children('div').first().addClass(cls);
+            }
+            else
+            {
+                $scale.children('div').first().next().addClass(cls);
+            }
+
+            $switch.addClass('current');
+            $scale.addClass('current');
         }
-        else
-        {
-            $switch.children('div').first().next().addClass(cls);
-        }
+    );
 
-        if (val.substr(1, 1) == 'L')
-        {
-            $scale.children('div').first().addClass(cls);
-        }
-        else
-        {
-            $scale.children('div').first().next().addClass(cls);
-        }
-
-        $switch.addClass('current');
-        $scale.addClass('current');
-    });
-
-    if (NetworkTables.isRobotConnected())
-    {
-        resetFieldColors();
-        NetworkTables.putValue('/Autonomous/robotLocation', '');
-        NetworkTables.putValue('/Autonomous/switch', '');
-        NetworkTables.putValue('/Autonomous/scale', '');
-    }
+    resetFieldColors();
+    NetworkTables.putValue('/Autonomous/robotLocation', '');
+    NetworkTables.putValue('/Autonomous/switch', '');
+    NetworkTables.putValue('/Autonomous/scale', '');
 
     // Elevator and Intake Display
     NetworkTables.addKeyListener('/Elevator/label', function(key, val, isNew) {
