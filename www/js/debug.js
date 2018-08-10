@@ -145,10 +145,10 @@ $(document).ready(function($) {
     }, true);
 
     NetworkTables.addKeyListener(
-        '/SmartDashboard/Active Commands/Ids',
+        '/LiveWindow/Ungrouped/Scheduler/Ids',
         function(key, ids, isNew) {
             var names = NetworkTables.getValue(
-                '/SmartDashboard/Active Commands/Names'
+                '/LiveWindow/Ungrouped/Scheduler/Names'
             );
 
             var html = '';
@@ -172,7 +172,7 @@ $(document).ready(function($) {
         var $button = $(e.target);
         var id = parseInt($button.data('id'));
         NetworkTables.putValue(
-            '/SmartDashboard/Active Commands/Cancel',
+            '/LiveWindow/Ungrouped/Scheduler/Cancel',
             [id]
         );
     });
