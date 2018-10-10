@@ -12,34 +12,12 @@
     background-color: #ffa32e;
 }
 
-#connection-indicator
-{
-    width: 15px;
-    height: 15px;
-    margin-left: 10px;
-    margin-top: 10px;
-    float: left;
-    border-radius: 10px;
-    border: 1px solid #ffffff;
-    background-color: #555555;
-}
-
-#connection-indicator.disconnected
-{
-    background-color: #ff0000;
-}
-
-#connection-indicator.connected
-{
-    background-color: #ffffff;
-}
-
 #config .ui-bar h2
 {
     margin-bottom: 1em;
 }
 
-#camera1, #camera2
+.camera
 {
     margin: 0.5em;
     background-color: #000;
@@ -47,8 +25,7 @@
     max-height: 360px;
 }
 
-#camera1 > img[src="/img/waiting.gif"],
-#camera2 > img[src="/img/waiting.gif"]
+.camera > img[src="/img/waiting.gif"]
 {
     margin: 3em auto;
     width: 40% !important;

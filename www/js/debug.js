@@ -15,6 +15,10 @@ $(document).ready(function($) {
     }
 
     NetworkTables.addGlobalListener(function(key, value, isNew) {
+        if (key.substring(0, 12) == '/LiveWindow/')
+        {
+            return;
+        }
         key = key.split('/');
         key.shift();
 
@@ -89,8 +93,20 @@ $(document).ready(function($) {
     var commands=[];
 
     NetworkTables.addGlobalListener(function(key, value, isNew) {
-        if (/^\/SmartDashboard\/Commands\/[\w ]+\/name$/.test(key) == false)
+        if (/^\/SmartDashboard\/Commands\/[\w ]+\/\.name$/.test(key) == false)
+        {
              return;
+        }
+
+        if (value.indexOf('/') != -1)
+        {
+            return;
+        }
+
+        if (commands.includes(value))
+        {
+            return;
+        }
 
         key = key.split('/');
         key.pop();
@@ -103,7 +119,7 @@ $(document).ready(function($) {
             + 'ui-btn-icon-right" id="' + id + '">' + value + '</button>';
 
 
-        $('#stored-commands').html(html);
+        $('#stored-commands').append(html);
 
         $('#' + id).click(function(e) {
             NetworkTables.putValue(
@@ -133,10 +149,10 @@ $(document).ready(function($) {
     }, true);
 
     NetworkTables.addKeyListener(
-        '/SmartDashboard/Active Commands/Ids',
+        '/LiveWindow/Ungrouped/Scheduler/Ids',
         function(key, ids, isNew) {
             var names = NetworkTables.getValue(
-                '/SmartDashboard/Active Commands/Names'
+                '/LiveWindow/Ungrouped/Scheduler/Names'
             );
 
             var html = '';
@@ -160,7 +176,7 @@ $(document).ready(function($) {
         var $button = $(e.target);
         var id = parseInt($button.data('id'));
         NetworkTables.putValue(
-            '/SmartDashboard/Active Commands/Cancel',
+            '/LiveWindow/Ungrouped/Scheduler/Cancel',
             [id]
         );
     });
